@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
+open struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
     var tabItems: [TabItem]
     @State var selectedTabItem: TabItem
     @State private var xAxis: CGFloat = 0
