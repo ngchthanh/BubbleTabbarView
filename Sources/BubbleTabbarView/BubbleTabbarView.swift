@@ -1,15 +1,22 @@
 import SwiftUI
 
 public struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
-    let tabItems: [TabItem]
-    @State public var selectedTabItem: TabItem
+    public let tabItems: [TabItem]
+    @State public var selectedTabItem: TabItem?
     @State private var xAxis: CGFloat = 0
     private let imageSize = CGSize(width: 25, height: 25)
+    private let defaultTabItem: TabItem
+    
+    public init(tabItems: [TabItem], selectedTabItem: TabItem) {
+        self.tabItems = tabItems
+        self.defaultTabItem = selectedTabItem
+    }
+    
     public var body: some View {
         ZStack(alignment: .bottom) {
-            selectedTabItem.backgroundColor.transition(.opacity)
+            (selectedTabItem == nil ? Color.clear : selectedTabItem?.backgroundColor).transition(.opacity)
             VStack(spacing: 0) {
-                selectedTabItem.view.transition(.opacity)
+                selectedTabItem?.view.transition(.opacity)
                 HStack {
                     ForEach(tabItems, id: \.self) { tab in
                         GeometryReader { reader in
@@ -54,6 +61,9 @@ public struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            selectedTabItem = defaultTabItem
+        }
     }
 }
 
