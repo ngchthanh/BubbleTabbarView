@@ -1,4 +1,5 @@
 # BubbleTabbarView
+<img src="https://i.imgur.com/GM6IWjp.gif" width="414" height="856">
 
 ## Requirements
 
@@ -7,7 +8,9 @@
 
 ## Installation
 
-[Swift Package Manager](https://swift.org/package-manager/)
+Just add the BubbleTabbarView folder to your project.
+
+or [Swift Package Manager](https://swift.org/package-manager/)
 
 ## Usage
 1. Implement BubbleTabItemable protocol for custom tabItem view
