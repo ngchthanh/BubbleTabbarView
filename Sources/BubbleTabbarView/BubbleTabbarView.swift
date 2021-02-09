@@ -1,11 +1,11 @@
 import SwiftUI
 
-open struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
-    var tabItems: [TabItem]
-    @State var selectedTabItem: TabItem
+public struct BubbleTabbarView<TabItem: BubbleTabItemable>: View {
+    let tabItems: [TabItem]
+    @State public var selectedTabItem: TabItem
     @State private var xAxis: CGFloat = 0
     private let imageSize = CGSize(width: 25, height: 25)
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .bottom) {
             selectedTabItem.backgroundColor.transition(.opacity)
             VStack(spacing: 0) {
