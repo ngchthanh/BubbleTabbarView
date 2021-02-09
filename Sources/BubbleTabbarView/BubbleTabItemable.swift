@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol BubbleTabItemable: CaseIterable, Identifiable, Hashable {
+public protocol BubbleTabItemable: CaseIterable, Identifiable, Hashable {
     var image: String { get }
     var view: AnyView { get }
     var backgroundColor: Color { get }
